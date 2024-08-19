@@ -4,6 +4,8 @@ const Movies = require('./models/movies');
 const methodOverride = require('method-override');
 const moviesRouter = require('./controllers/movies');
 const app = express();
+const morgan = require ('morgan'); //morgan logs routes
+
 
 
 //////////////////////////////////////////////
@@ -24,12 +26,18 @@ app.use(express.urlencoded({ extended: true }));
 // thus overriding the POST (or GET) in the method attribute 
 app.use(methodOverride('_method'));
 
+
+app.use(morgan('tiny')); //uses morgan
+
 app.use('/', moviesRouter);
 
 //////////////////////////////////////////////
 //////// Routes: Section          //////// 
 ///////////////////////////////////////////////
 
+app.get('/', (req, res)=> {
+  res.send('<h1>Movies App!</h1>');
+});
 
 
 // create a landing page

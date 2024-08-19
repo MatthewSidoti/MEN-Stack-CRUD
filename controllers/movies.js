@@ -48,6 +48,7 @@ router.delete('/movies/:id', async (req, res) => {
 
 
 router.put('/movies/:id', async (req, res) => {
+  console.log("is it working?")
     await Movies.findByIdAndUpdate(req.params.id, req.body);
     res.redirect('/movies');
 });

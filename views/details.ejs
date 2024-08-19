@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <%- include('./partials/back') %>
+  <%- include('./partials/back') %>
     <br>
-    <button type="submit">Update</button>
-</form>
-   <img
-    
-        width="100"
-        length="100"
-    />
+    <img width="100" length="100" />
 
     <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
+      <input type="submit" value="update" />
       <p>Image Url:</p><input type="text" name="imageUrl" value="<%= movie.imageUrl %>" />
       <br>
       <p>Name:</p>
@@ -27,15 +24,16 @@
       <br>
       <p>Year Released:</p>
       <input type="text" name="yearReleased" value="<%= movie.yearReleased %>" />
-  </form>
-  
+    </form>
 
-   <br>
-   <br>
+
+    <br>
+    <br>
 
     <form action="/movies/<%=movie._id%>?_method=DELETE" method="POST">
-        <input type="submit" value="delete movie"/>
+      <input type="submit" value="delete movie" />
     </form>
 
 </body>
+
 </html>
