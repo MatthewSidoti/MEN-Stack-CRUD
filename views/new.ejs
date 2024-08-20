@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<body>
+<%- include("./partials/head.ejs") %>
 
-    <%- include('./partials/back') %>
+  <body>
+    <%- include("./partials/header.ejs") %>
+      <%- include('./partials/back') %>
 
-    <form action="/movies" method="POST">
-      <fieldset>
-        <legend> Movie Information</legend>
-        
-        
-        <label>
-           Image Url: <input type="text" name="imageUrl" /> 
-            
-        </label>
-        <br>
-        <label>
-            Name: <input type="text" name="name" placeholder="enter movies name" />
-            
-        </label>
-        <br>
-        <label>
-            Runtime: <input type="text" name="title"   />
-            
-        </label>
-        <label>
-            Released: <input type="text" name="title"   />
-            
-        </label>
-    </fieldset>
-    <input type="submit" value="create new movie"/>
-</form>
+        <form action="/movies" method="POST">
+          <fieldset>
+            <legend>
+              <h1>Movie Information:</h1>
+            </legend>
 
-    
-</body>
+
+            <label>
+              Image Url: <input type="text" name="imageUrl" placeholder="enter image URL" />
+
+            </label>
+            <br>
+            <label>
+              Name: <input type="text" name="name" placeholder="enter movies name" />
+
+            </label>
+            <br>
+            <label>
+              Runtime: <input type="text" name="title" placeholder="enter movies runtime" />
+
+            </label>
+            <label>
+              Released: <input type="text" name="title" placeholder="enter year released" />
+
+            </label>
+          </fieldset>
+          <input type="submit" value="create new movie" />
+        </form>
+
+
+  </body>
+
 </html>

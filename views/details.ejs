@@ -7,33 +7,38 @@
   <title>Document</title>
 </head>
 
-<body>
-  <%- include('./partials/back') %>
-    <br>
-    <img width="100" length="100" />
+<%- include("./partials/head.ejs") %>
 
-    <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
-      <input type="submit" value="update" />
-      <p>Image Url:</p><input type="text" name="imageUrl" value="<%= movie.imageUrl %>" />
-      <br>
-      <p>Name:</p>
-      <input type="text" name="name" value="<%= movie.name %>" />
-      <br>
-      <p>Runtime:</p>
-      <input type="text" name="runtime" value="<%= movie.runtime %>" />
-      <br>
-      <p>Year Released:</p>
-      <input type="text" name="yearReleased" value="<%= movie.yearReleased %>" />
-    </form>
+  <body>
+    <%- include("./partials/header.ejs") %>
+      <%- include('./partials/back') %>
+        <br>
 
 
-    <br>
-    <br>
+        <img width="100" length="100" />
 
-    <form action="/movies/<%=movie._id%>?_method=DELETE" method="POST">
-      <input type="submit" value="delete movie" />
-    </form>
+        <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
+          <input type="submit" value="update" />
+          <p>Image Url:</p><input type="text" name="imageUrl" value="<%= movie.imageUrl %>" />
+          <br>
+          <p>Name:</p>
+          <input type="text" name="name" value="<%= movie.name %>" />
+          <br>
+          <p>Runtime:</p>
+          <input type="text" name="runtime" value="<%= movie.runtime %>" />
+          <br>
+          <p>Year Released:</p>
+          <input type="text" name="yearReleased" value="<%= movie.yearReleased %>" />
+        </form>
 
-</body>
+
+        <br>
+        <br>
+
+        <form action="/movies/<%=movie._id%>?_method=DELETE" method="POST">
+          <input type="submit" value="delete movie" />
+        </form>
+
+  </body>
 
 </html>
