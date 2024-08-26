@@ -31,7 +31,7 @@ app.use(methodOverride('_method'));
 app.use(morgan('tiny')); //uses morgan
 
 app.use(session({
-  secret: process.env.secret,
+  secret: process.env.SECRET,
   store: MongoStore.create({mongoUrl: process.env.DBURL}),
   saveUninitialized: true,
   resave: false,
