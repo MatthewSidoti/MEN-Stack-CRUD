@@ -11,6 +11,7 @@ const MoviesSchema = new mongoose.Schema({
     name: String,
     runtime: String,
     yearReleased: String,
+    username: String,
 });
 
 //this variable holds all the configurations and schema and is the thing that 'talks' to the db and express app

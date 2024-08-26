@@ -4,7 +4,18 @@ const Movies = require('../models/movies');
 // allows the routes defined on this file to be used in the server.js file
 // for example we can just do app.use('/', peopleRouter); in the server.js file
 const router  = express.Router();
+////////////////////////////////////////
+// Router Middleware
+////////////////////////////////////////
+router.use((req, res, next) => {
+    if(req.session.loggedIn){
+        next();
+    } else {
+        res.redirect("/user/login");
+    }
+})
 
+////////////////////////////////////////
 
 //////////////////////////////////////////////
 //////// Routes: Section          //////// 
@@ -14,7 +25,7 @@ const router  = express.Router();
 // create a landing page
 router.get('/movies', async (req, res) => {
     try {
-        let mov = await Movies.find({});
+        let mov = await Movies.find({ username: req.session.username});
         res.render('landing.ejs', { movies: mov })
 
     } catch (err) {
@@ -29,6 +40,8 @@ router.get('/movies/new', (req, res) => {
 })
 
 router.post('/movies', async (req, res) => {
+    req.body.readyToMovie = req.body.readyToMovie === 'on' ? true : false;
+    req.body.username = req.session.username;
     await Movies.create(req.body);
     res.redirect('/movies')
 });

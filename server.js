@@ -3,10 +3,11 @@ const express = require('express');
 const Movies = require('./models/movies');
 const methodOverride = require('method-override');
 const moviesRouter = require('./controllers/movies');
+const UserRouter = require('./controllers/user');
 const app = express();
 const morgan = require ('morgan'); //morgan logs routes
-
-
+const MongoStore = require('connect-mongo');
+const session = require('express-session');
 
 //////////////////////////////////////////////
 //////// Middles: Section          //////// 
@@ -29,16 +30,27 @@ app.use(methodOverride('_method'));
 
 app.use(morgan('tiny')); //uses morgan
 
+app.use(session({
+  secret: process.env.secret,
+  store: MongoStore.create({mongoUrl: process.env.DBURL}),
+  saveUninitialized: true,
+  resave: false,
+}));
+
+
+app.use('/user', UserRouter);
 app.use('/', moviesRouter);
+
+
+
 
 //////////////////////////////////////////////
 //////// Routes: Section          //////// 
 ///////////////////////////////////////////////
 
-app.get('/', (req, res)=> {
-  res.send('<h1>Movies App!</h1>');
+app.get('/', (req, res) => {
+  res.render("frontpage.ejs");
 });
-
 
 // create a landing page
 
