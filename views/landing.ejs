@@ -9,12 +9,12 @@
           <a href="user/logout"><button>Logout</button></a>
               <main>
                   <div>
-                    <a href="/movies/new"><button>Create new movie</button></a>
+                    <a href="/newloss/new"><button>Create New Loss</button></a>
     
                     <ul>
-                        <% for(m of movies) {%>
-                            <a href="/movies/<%=m._id%>">
-                                <li><%=m.name %></li>
+                        <% for(los of Loss) {%>
+                            <a href="/newloss/<%=l._id%>">
+                                <li><%=los.name %></li>
                             </a>
                         <%} %>
                     </ul>

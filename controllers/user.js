@@ -4,6 +4,7 @@ const bcrypt= require('bcryptjs');
 const router = express.Router();
 
 
+
 router.get("/signup", (req, res) => {
     res.render("user/signup.ejs");
 });
@@ -55,7 +56,7 @@ router.post("/login", async (req, res) => {
                 req.session.username=req.body.username;
                 req.session.loggedIn= true;
                 console.log(req.session)
-                res.redirect("/movies");
+                res.redirect("/adjusting");
             } else {
             //passwords DO NOT match, send this string
                 res.send("wrong password");

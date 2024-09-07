@@ -1,8 +1,8 @@
 require('dotenv').config(); //load in my .env variables 
 const express = require('express');
-const Movies = require('./models/movies');
+const Loss = require('./models/NewLoss');
 const methodOverride = require('method-override');
-const moviesRouter = require('./controllers/movies');
+const newLossRouter = require('./controllers/NewLoss');
 const UserRouter = require('./controllers/user');
 const app = express();
 const morgan = require ('morgan'); //morgan logs routes
@@ -39,7 +39,7 @@ app.use(session({
 
 
 app.use('/user', UserRouter);
-app.use('/', moviesRouter);
+app.use('/newLoss', newLossRouter);
 
 
 
