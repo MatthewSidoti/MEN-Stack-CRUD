@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
                 req.session.username=req.body.username;
                 req.session.loggedIn= true;
                 console.log(req.session)
-                res.redirect("/adjusting");
+                res.redirect("/newloss/adjusting");
             } else {
             //passwords DO NOT match, send this string
                 res.send("wrong password");

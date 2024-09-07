@@ -12,13 +12,13 @@
     <main>
       <div>
         <!-- Link to create a new loss -->
-        <a href="/new"><button>Create New Loss</button></a>
+        <a href="/newloss/new"><button>Create New Loss</button></a>
 
         <ul>
           <% for(let los of Loss) { %>
             <li>
               <!-- Link to loss details page -->
-              <a href="/newloss/<%= los._id %>"><%= los.insuredName %></a>
+              <a href="/newloss/new<%= los._id %>"><%= los.insuredName %></a>
             </li>
           <% } %>
         </ul>

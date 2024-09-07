@@ -39,7 +39,7 @@ app.use(session({
 
 
 app.use('/user', UserRouter);
-app.use('/newLoss', newLossRouter);
+app.use('/newloss', newLossRouter);
 
 
 

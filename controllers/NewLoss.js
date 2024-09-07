@@ -21,21 +21,32 @@ router.use((req, res, next) => {
 // Landing page (showing all losses)
 router.get('/adjusting', async (req, res) => {
     try {
+        // Fetch the losses from the database
         let los = await Loss.find({ username: req.session.username });
-        res.render('landing.ejs', { Loss: los });
+        // Pass the data to the EJS template
+        res.render('adjusting.ejs', { los });
     } catch (err) {
-        console.error('Error fetching losses:', err);
-        res.status(400).json({ error: 'Error fetching losses' });
+        res.status(400).json(err);
     }
 });
 
+
+// router.get('/adjusting', async (req, res) => {
+//     try {
+//         let los = await Loss.find({ username: req.session.username });
+//         res.render('adjusting.ejs', { los });
+//     } catch (err) {
+//         console.error('Error fetching losses:', err);
+//         res.status(400).json({ error: 'Error fetching losses' });
+//     }
+// });
 // New loss page (renders the new loss form)
 router.get('/new', (req, res) => {
     res.render('new.ejs');
 });
 
 // Handle creation of a new loss
-router.post('/newloss/new', async (req, res) => {
+router.post('/new', async (req, res) => {
     try {
         // Assuming you're using sessions and want to set the username
         req.body.username = req.session.username;
@@ -44,7 +55,7 @@ router.post('/newloss/new', async (req, res) => {
         const newLoss = new Loss(req.body);
         await newLoss.save();  // Save it to the database
 
-        res.redirect('/adjusting');  // Redirect after successful creation
+        res.redirect('/newloss/adjusting');  // Redirect after successful creation
     } catch (error) {
         console.error('Error creating loss:', error);
         res.status(500).send('Server error');
@@ -70,7 +81,7 @@ router.get('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         await Loss.findByIdAndDelete(req.params.id);
-        res.redirect('/adjusting');
+        res.redirect('/newloss/adjusting');
     } catch (error) {
         console.error('Error deleting loss:', error);
         res.status(400).json({ error: 'Error deleting loss' });
@@ -81,7 +92,7 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         await Loss.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect('/adjusting');
+        res.redirect('/newloss/adjusting');
     } catch (error) {
         console.error('Error updating loss:', error);
         res.status(400).json({ error: 'Error updating loss' });

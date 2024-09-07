@@ -12,28 +12,23 @@
   <%- include("./partials/header.ejs") %>
   <%- include('./partials/back') %>
   
-  <h1>Loss Adjusting Page</h1>
 
-  <a href="/new"><button>Create New Loss</button></a>
+  <a href="/newloss/new"><button>Create New Loss</button></a>
   
   <div>
     <h2>List of Losses</h2>
-    <ul>
-      <% if (Loss.length > 0) { %>
-        <% for (let loss of Loss) { %>
-          <li>
-            <a href="/newloss/<%= loss._id %>">
-              <strong>Insured Name:</strong> <%= loss.insuredName %> <br>
-              <strong>Date of Loss:</strong> <%= loss.dateOfLoss %> <br>
-              <strong>Type of Loss:</strong> <%= loss.typeOfLoss %> <br>
-              <strong>Location:</strong> <%= loss.lossLocation %>
-            </a>
-          </li>
-        <% } %>
-      <% } else { %>
-        <p>No losses found. Please create a new loss.</p>
-      <% } %>
-    </ul>
+    <% for (let loss of los) { %>
+      <ul>
+        <li>
+          <a href="/newloss/<%= loss._id %>">
+            <strong>Insured Name:</strong> <%= loss.insuredName %> <br>
+            <strong>Date of Loss:</strong> <%= loss.dateOfLoss %> <br>
+            <strong>Type of Loss:</strong> <%= loss.typeOfLoss %> <br>
+            <strong>Location:</strong> <%= loss.lossLocation %>
+          </a>
+        </li>
+      </ul>
+  <% } %>
   </div>
 
 </body>
