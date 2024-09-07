@@ -1,25 +1,28 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <!-- head.ejs partial -->
   <%- include("./partials/head.ejs") %>
   
-      <body>
-          <!-- header.ejs partial -->
-          <%- include("./partials/header.ejs") %>
-          <a href="user/logout"><button>Logout</button></a>
-              <main>
-                  <div>
-                    <a href="/newloss/new"><button>Create New Loss</button></a>
+  <body>
+    <!-- header.ejs partial -->
+    <%- include("./partials/header.ejs") %>
     
-                    <ul>
-                        <% for(los of Loss) {%>
-                            <a href="/newloss/<%=l._id%>">
-                                <li><%=los.name %></li>
-                            </a>
-                        <%} %>
-                    </ul>
-                  </div>
-              </main>
-      </body>
-  
-  </html>
+    <a href="/user/logout"><button>Logout</button></a>
+    
+    <main>
+      <div>
+        <!-- Link to create a new loss -->
+        <a href="/new"><button>Create New Loss</button></a>
+
+        <ul>
+          <% for(let los of Loss) { %>
+            <li>
+              <!-- Link to loss details page -->
+              <a href="/newloss/<%= los._id %>"><%= los.insuredName %></a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

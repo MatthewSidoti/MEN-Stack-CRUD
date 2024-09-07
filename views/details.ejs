@@ -4,42 +4,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Loss Details</title>
+  <%- include("./partials/head.ejs") %>
 </head>
 
-<%- include("./partials/head.ejs") %>
+<body>
+  <%- include("./partials/header.ejs") %>
+  <%- include('./partials/back') %>
+  
+  <h1>Loss Details</h1>
+  
+  <img src="<%= loss.photoLink %>" alt="Loss Photo" width="100" height="100" />
 
-  <body>
-    <%- include("./partials/header.ejs") %>
-      <%- include('./partials/back') %>
-      
-        <br>
+  <!-- Update Loss Form -->
+  <form action="/newloss/<%= loss._id %>?_method=PUT" method="POST">
+    <input type="submit" value="Update Loss" />
+    
+    <p>Insured Name:</p>
+    <input type="text" name="insuredName" value="<%= loss.insuredName %>" required />
+    <br>
 
+    <p>Insured Address:</p>
+    <input type="text" name="insuredAddress" value="<%= loss.insuredAddress %>" required />
+    <br>
 
-        <img width="100" length="100" />
+    <p>Insured Phone Number:</p>
+    <input type="text" name="insuredPhoneNumber" value="<%= loss.insuredPhoneNumber %>" required />
+    <br>
 
-        <form action="/newloss/<%= movie._id %>?_method=PUT" method="POST">
-          <input type="submit" value="update" />
-          <p>Image Url:</p><input type="text" name="imageUrl" value="<%= movie.imageUrl %>" />
-          <br>
-          <p>Name:</p>
-          <input type="text" name="name" value="<%= movie.name %>" />
-          <br>
-          <p>Runtime:</p>
-          <input type="text" name="runtime" value="<%= movie.runtime %>" />
-          <br>
-          <p>Year Released:</p>
-          <input type="text" name="yearReleased" value="<%= movie.yearReleased %>" />
-        </form>
+    <p>Date of Loss:</p>
+    <input type="date" name="dateOfLoss" value="<%= loss.dateOfLoss %>" required />
+    <br>
 
+    <p>Type of Loss:</p>
+    <input type="text" name="typeOfLoss" value="<%= loss.typeOfLoss %>" required />
+    <br>
 
-        <br>
-        <br>
+    <p>Loss Location:</p>
+    <input type="text" name="lossLocation" value="<%= loss.lossLocation %>" required />
+    <br>
 
-        <form action="/newloss/<%=loss._id%>?_method=DELETE" method="POST">
-          <input type="submit" value="delete movie" />
-        </form>
+    <p>Truck VIN:</p>
+    <input type="text" name="truckVin" value="<%= loss.truckVin %>" />
+    <br>
 
-  </body>
+    <p>Truck Make:</p>
+    <input type="text" name="truckMake" value="<%= loss.truckMake %>" />
+    <br>
+
+    <p>Truck Model:</p>
+    <input type="text" name="truckModel" value="<%= loss.truckModel %>" />
+    <br>
+
+    <p>Truck Year:</p>
+    <input type="text" name="truckYear" value="<%= loss.truckYear %>" />
+    <br>
+
+    <p>Trailer VIN:</p>
+    <input type="text" name="trailerVin" value="<%= loss.trailerVin %>" />
+    <br>
+
+    <p>Trailer Make:</p>
+    <input type="text" name="trailerMake" value="<%= loss.trailerMake %>" />
+    <br>
+
+    <p>Trailer Model:</p>
+    <input type="text" name="trailerModel" value="<%= loss.trailerModel %>" />
+    <br>
+
+    <p>Trailer Year:</p>
+    <input type="text" name="trailerYear" value="<%= loss.trailerYear %>" />
+    <br>
+
+    <p>Agent's Name:</p>
+    <input type="text" name="agentsName" value="<%= loss.agentsName %>" />
+    <br>
+
+    <p>Agent's Email:</p>
+    <input type="email" name="agentsEmail" value="<%= loss.agentsEmail %>" />
+    <br>
+
+    <p>Agent's Phone:</p>
+    <input type="text" name="agentsPhone" value="<%= loss.agentsPhone %>" />
+    <br>
+
+    <p>Policy Number:</p>
+    <input type="text" name="policyNumber" value="<%= loss.policyNumber %>" />
+    <br>
+
+    <p>Policy Start:</p>
+    <input type="date" name="policyStart" value="<%= loss.policyStart %>" />
+    <br>
+
+    <p>Policy End:</p>
+    <input type="date" name="policyEnd" value="<%= loss.policyEnd %>" />
+    <br>
+
+    <p>Policy Link:</p>
+    <input type="url" name="policyLink" value="<%= loss.policyLink %>" />
+    <br>
+
+    <p>Photos Link:</p>
+    <input type="url" name="photoLink" value="<%= loss.photoLink %>" />
+  </form>
+
+  <br>
+  
+  <!-- Delete Loss Form -->
+  <form action="/newloss/<%= loss._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete Loss" />
+  </form>
+
+</body>
 
 </html>

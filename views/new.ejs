@@ -4,168 +4,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>New Loss</title>
+  <%- include("./partials/head.ejs") %>
 </head>
-<%- include("./partials/head.ejs") %>
 
-  <body>
-    <%- include("./partials/header.ejs") %>
-      <%- include('./partials/back') %>
+<body>
+  <%- include("./partials/header.ejs") %>
+  <%- include('./partials/back') %>
 
-        <form action="/newloss" method="POST">
-          <fieldset>
-            <legend>
-              <h1>New Loss:</h1>
-            </legend>
-            <!-- insuredName: String,
-            insuredAddress: String,
-            insuredPhoneNumber: String,
-            dateOfLoss: String,
-            typeOfLoss: String,
-            dateReported: String,
-            lossLocation: String,
-            lossDescription: String,
-            truckVin: String,
-            truckMake: String,
-            truckModel: String,
-            truckYear: String,
-            trailerVin: String,
-            trailerMake: String,
-            trailerModel: String,
-            trailerYear: String,
-            agentsName: String,
-            agentsEmail: String,
-            agentsPhone: String,
-            policyNumber: String,
-            policyStart: String,
-            policyEnd: String,
-            policyLink: String,
-            photoLink: String, -->
+  <form action="/newloss/new" method="POST">
+    <fieldset>
+      <legend>
+        <h1>New Loss:</h1>
+      </legend>
 
-            <label>
-              Insureds Name: <input type="text" name="insuredName" placeholder="Enter Insureds Name" />
+      <label>Insured Name: <input type="text" name="insuredName" placeholder="Enter Insured's Name" required /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Insureds Address: <input type="text" name="insuredAddress" placeholder="Enter Insureds Address" />
+      <label>Insured Address: <input type="text" name="insuredAddress" placeholder="Enter Insured's Address" required /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Insureds Phone Number: <input type="text" name="insuredPhoneNumber" placeholder="Enter Phone Number (***-***-****)" />
+      <label>Insured Phone Number: <input type="tel" name="insuredPhoneNumber" placeholder="Enter Phone Number (***-***-****)" required /></label><br>
 
-            </label>
-            <label>
-              Date Of Loss: <input type="text" name="dateOfLoss" placeholder="Enter Date Of Loss (**/**/****)" />
+      <label>Date Of Loss: <input type="date" name="dateOfLoss" required /></label><br>
 
-            </label>
+      <label>Type Of Loss:
+        <select name="typeOfLoss" required>
+          <option value="">Select Type Of Loss</option>
+          <option value="Motor Truck Cargo">Motor Truck Cargo</option>
+          <option value="Auto Physical Damage">Auto Physical Damage</option>
+        </select>
+      </label><br>
 
-            <label>
-              Type Of Loss: <select type="text" name="typeOfLoss" id="lossType"><option value="">Select Type Of Loss</option><option value="Motor Truck Cargo">Motor Truck Cargo</option>
-                <option value="Auto Physical Damage">Auto Physical Damage</option> </select>
+      <label>Date Reported: <input type="date" name="dateReported" required /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Date Reported: <input type="text" name=" dateReported" placeholder="Enter Date Reported (**/**/****)" />
+      <label>Loss Location: <input type="text" name="lossLocation" placeholder="Enter Loss Location" required /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Loss Location: <input type="text" name="lossLocation" placeholder="Enter Loss Location" />
+      <label>Truck VIN: <input type="text" name="truckVin" placeholder="Enter Truck VIN" required /></label><br>
 
-            </label>
-            <label>
-              Truck VIN: <input type="text" name="truckVin" placeholder="Enter Truck VIN" />
+      <label>Truck Make: <input type="text" name="truckMake" placeholder="Enter Make of Truck" /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Truck Make: <input type="text" name=" truckMake" placeholder="Enter Make Of Truck" />
+      <label>Truck Model: <input type="text" name="truckModel" placeholder="Enter Truck Model" /></label><br>
 
-            </label>
-            <label>
-              Truck Model: <input type="text" name="truckModel" placeholder="Enter Truck Model" />
+      <label>Truck Year: <input type="text" name="truckYear" placeholder="Enter Truck Year" /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Truck Year: <input type="text" name="truckYear" placeholder="Enter Year Truck Was Made" />
+      <label>Trailer VIN: <input type="text" name="trailerVin" placeholder="Enter Trailer VIN" /></label><br>
 
-            </label>
+      <label>Trailer Make: <input type="text" name="trailerMake" placeholder="Enter Trailer Make" /></label><br>
 
-            <label>
-              Trailer VIN: <input type="text" name="trailerVin" placeholder="Enter Trailer VIN" />
+      <label>Trailer Model: <input type="text" name="trailerModel" placeholder="Enter Trailer Model" /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Trailer Make: <input type="text" name=" trailerMake" placeholder="Enter Make Of Trailer" />
+      <label>Trailer Year: <input type="text" name="trailerYear" placeholder="Enter Trailer Year" /></label><br>
 
-            </label>
-            <label>
-              Trailer Model: <input type="text" name="trailerModel" placeholder="Enter Trailer Model" />
+      <label>Agent's Name: <input type="text" name="agentsName" placeholder="Enter Agent's Name" /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Trailer Year: <input type="text" name="trailerYear" placeholder="Enter Year Trailer Was Made" />
+      <label>Agent's Email: <input type="email" name="agentsEmail" placeholder="Enter Agent's Email" /></label><br>
 
-            </label>
-            <label>
-              Insurance Agents Name: <input type="text" name="agentsName" placeholder="Enter Agents Name" />
+      <label>Agent's Phone: <input type="tel" name="agentsPhone" placeholder="Enter Agent's Phone" /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Insurance Agents Email: <input type="text" name=" agentsEmail" placeholder="Enter Agents Email" />
+      <label>Policy Number: <input type="text" name="policyNumber" placeholder="Enter Policy Number" required /></label><br>
 
-            </label>
-            <label>
-              Insurance Agents Phone: <input type="text" name="agentsPhone" placeholder="Enter Agents Phone" />
+      <label>Policy Start Date: <input type="date" name="policyStart" required /></label><br>
 
-            </label>
-            <br>
-            <label>
-              Policy Number: <input type="text" name="policyNumber" placeholder="Enter Policy Number" />
+      <label>Policy End Date: <input type="date" name="policyEnd" required /></label><br>
 
-            </label>
-          </label>
-          <label>
-            Insurance Agents Phone: <input type="text" name="agentsPhone" placeholder="Enter Agents Phone" />
+      <label>Full Policy Link: <input type="url" name="policyLink" placeholder="Enter Link to Full Policy" /></label><br>
 
-          </label>
-          <br>
-          <label>
-            Policy Number: <input type="text" name="policyNumber" placeholder="Enter Policy Number" />
+      <label>Photos Link: <input type="url" name="photoLink" placeholder="Enter Link to Photos" /></label><br>
 
-          </label>
-        </label>
-        <label>
-          Policy Start: <input type="text" name=" policyStart" placeholder="Enter Policy Start Date" />
+    </fieldset>
+    <input type="submit" value="Submit New Loss" />
+  </form>
 
-        </label>
-        <br>
-        <label>
-          Policy End: <input type="text" name="policyEnd" placeholder="Enter Policy End Date" />
-
-        </label>
-        <label>
-          Full Policy: <input type="text" name=" policyLink" placeholder="Enter Link To Full Policy" />
-
-        </label>
-        <br>
-        <label>
-          Photos: <input type="text" name="photoLink" placeholder="Enter Link To Photos" />
-
-        </label>
-
-          </fieldset>
-          <input type="submit" value="Submit New Loss" />
-        </form>
-
-
-  </body>
+</body>
 
 </html>
