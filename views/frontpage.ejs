@@ -1,14 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include("./partials/head.ejs") %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdjustPro Claims Solutions</title>
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <main>
-        <div>
-          <a href="/user/signup"><button>Signup</button></a>
-          <a href="/user/login"><button>Login</button></a>
-        </div>
-      </main>
+  <header>
+    <div class="logo">
+      <img src="" alt="AdjustPro Logo">
+      <h1>AdjustPro Claims Solutions</h1>
+      <p>Efficient, Transparent, Reliable.</p>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div>
+    <a href="/user/signup"><button>Signup</button></a>
+    <a href="/user/login"><button>Login</button></a>
+  </div>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At AdjustPro Claims Solutions, we specialize in providing independent third-party insurance adjusting services. With a dedicated team of experienced adjusters, we ensure that every claim is handled with precision, fairness, and professionalism. Whether you’re an insurance company or policyholder, we offer seamless support through every step of the claims process.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li><strong>Property Claims Adjusting:</strong> Comprehensive assessments for residential, commercial, and industrial property damage.</li>
+      <li><strong>Auto Claims Adjusting:</strong> Fast and accurate evaluations for auto-related claims, including personal and commercial vehicles.</li>
+      <li><strong>Casualty Claims:</strong> Expert analysis and claims handling for liability and personal injury cases.</li>
+      <li><strong>Catastrophe Response:</strong> Rapid deployment of adjusters in times of natural disasters or emergencies.</li>
+      <li><strong>Appraisals & Disputes:</strong> Mediation and fair appraisal services for resolving claim disputes.</li>
+    </ul>
+  </section>
+
+  <section id="process">
+    <h2>Our Process</h2>
+    <ol>
+      <li><strong>Initial Contact:</strong> We receive and acknowledge the claim.</li>
+      <li><strong>Assessment:</strong> Our adjusters conduct thorough on-site or virtual evaluations.</li>
+      <li><strong>Report Submission:</strong> Detailed reports are generated and submitted to the insurance company.</li>
+      <li><strong>Resolution:</strong> We assist in claim negotiations and help facilitate a fair settlement.</li>
+    </ol>
+  </section>
+  <a href="/newloss/new"><button>Create New Loss</button></a>
+  
+  <section id="testimonials">
+    <h2>Client Testimonials</h2>
+    <blockquote>
+      <p>"AdjustPro was quick to respond after a storm damaged our home. Their adjuster was thorough and really advocated for us. Highly recommend!"</p>
+      <footer>- Sarah T., Homeowner</footer>
+    </blockquote>
+    <blockquote>
+      <p>"The adjusters at AdjustPro made our job easier during a busy claims season. They were professional and efficient."</p>
+      <footer>- John M., Insurance Company</footer>
+    </blockquote>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: (800) 123-4567</p>
+    <p>Email: info@adjustpro.com</p>
+    <p>Office Locations:</p>
+    <ul>
+      <li>Atlanta, GA</li>
+      <li>Dallas, TX</li>
+      <li>Chicago, IL</li>
+    </ul>
+
+    <form action="/send-message" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> AdjustPro Claims Solutions</p>
+    <ul class="social-links">
+      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+    <%- include("./partials/head.ejs") %>

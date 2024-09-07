@@ -62,6 +62,13 @@ router.post('/new', async (req, res) => {
     }
 });
 
+// router.post('/newloss/new', (req, res) => {
+//     const newLoss = req.body;  // This collects the form data
+//     // Save newLoss to the database
+//     // After saving, redirect or re-render the list of losses
+//     res.redirect('/losses');  // Assuming you have a '/losses' route that lists losses
+//   });
+  
 
 // Loss detail page
 router.get('/:id', async (req, res) => {
