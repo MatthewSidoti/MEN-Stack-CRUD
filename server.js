@@ -54,6 +54,32 @@ app.get('/', (req, res) => {
 
 // create a landing page
 
+// POST route to handle form submission
+app.post('/send-message', (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Check if the required fields are provided (validation can be enhanced)
+  if (!name || !email || !message) {
+    return res.status(400).send('All fields are required!');
+  }
+
+  app.post('/newloss/new', (req, res) => {
+    const newLoss = req.body;  // This collects the form data
+    // Save newLoss to the database
+    // After saving, redirect or re-render the list of losses
+    res.redirect('/losses');  // Assuming you have a '/losses' route that lists losses
+  });
+  
+
+  // Handle the form data (e.g., save to database or send email)
+  // For example, logging the message or sending to an email service:
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Message:', message);
+
+  // Send a response to the client
+  res.send('Your message has been received! Thank you.');
+});
 
 
 

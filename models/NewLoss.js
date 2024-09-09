@@ -7,6 +7,7 @@ const mongoose = require('./connection');
 
 //created our SCHEMA. 
 const NewLossSchema = new mongoose.Schema({
+    username: String,
     insuredName: String,
     insuredAddress: String,
     insuredPhoneNumber: String,

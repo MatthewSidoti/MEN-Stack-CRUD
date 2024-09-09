@@ -24,6 +24,7 @@ router.get('/adjusting', async (req, res) => {
         // Fetch the losses from the database
         let los = await Loss.find({ username: req.session.username });
         // Pass the data to the EJS template
+        console.log(req.session.username)
         res.render('adjusting.ejs', { los });
     } catch (err) {
         res.status(400).json(err);
@@ -68,6 +69,25 @@ router.post('/new', async (req, res) => {
 //     // After saving, redirect or re-render the list of losses
 //     res.redirect('/losses');  // Assuming you have a '/losses' route that lists losses
 //   });
+  
+// POST route to handle form submission
+router.post('/send-message', (req, res) => {
+    const { name, email, message } = req.body;
+  
+    // Check if the required fields are provided (validation can be enhanced)
+    if (!name || !email || !message) {
+      return res.status(400).send('All fields are required!');
+    }
+  
+    // Handle the form data (e.g., save to database or send email)
+    // For example, logging the message or sending to an email service:
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Message:', message);
+  
+    // Send a response to the client
+    res.send('Your message has been received! Thank you.');
+  });
   
 
 // Loss detail page
