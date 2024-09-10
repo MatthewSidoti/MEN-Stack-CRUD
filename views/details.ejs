@@ -6,110 +6,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loss Details</title>
   <%- include("./partials/head.ejs") %>
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
   <%- include("./partials/header.ejs") %>
   <%- include('./partials/back') %>
   
-  <h1>Loss Details</h1>
+  <h1>Edit Loss Details</h1>
   
-  <img src="<%= loss.photoLink %>" alt="Loss Photo" width="100" height="100" />
 
   <!-- Update Loss Form -->
-  <form action="/newloss/<%= loss._id %>?_method=PUT" method="POST">
-    <input type="submit" value="Update Loss" />
-    
-    <p>Insured Name:</p>
-    <input type="text" name="insuredName" value="<%= loss.insuredName %>" required />
-    <br>
-
-    <p>Insured Address:</p>
-    <input type="text" name="insuredAddress" value="<%= loss.insuredAddress %>" required />
-    <br>
-
-    <p>Insured Phone Number:</p>
-    <input type="text" name="insuredPhoneNumber" value="<%= loss.insuredPhoneNumber %>" required />
-    <br>
-
-    <p>Date of Loss:</p>
-    <input type="date" name="dateOfLoss" value="<%= loss.dateOfLoss %>" required />
-    <br>
-
-    <p>Type of Loss:</p>
-    <input type="text" name="typeOfLoss" value="<%= loss.typeOfLoss %>" required />
-    <br>
-
-    <p>Loss Location:</p>
-    <input type="text" name="lossLocation" value="<%= loss.lossLocation %>" required />
-    <br>
-
-    <p>Truck VIN:</p>
-    <input type="text" name="truckVin" value="<%= loss.truckVin %>" />
-    <br>
-
-    <p>Truck Make:</p>
-    <input type="text" name="truckMake" value="<%= loss.truckMake %>" />
-    <br>
-
-    <p>Truck Model:</p>
-    <input type="text" name="truckModel" value="<%= loss.truckModel %>" />
-    <br>
-
-    <p>Truck Year:</p>
-    <input type="text" name="truckYear" value="<%= loss.truckYear %>" />
-    <br>
-
-    <p>Trailer VIN:</p>
-    <input type="text" name="trailerVin" value="<%= loss.trailerVin %>" />
-    <br>
-
-    <p>Trailer Make:</p>
-    <input type="text" name="trailerMake" value="<%= loss.trailerMake %>" />
-    <br>
-
-    <p>Trailer Model:</p>
-    <input type="text" name="trailerModel" value="<%= loss.trailerModel %>" />
-    <br>
-
-    <p>Trailer Year:</p>
-    <input type="text" name="trailerYear" value="<%= loss.trailerYear %>" />
-    <br>
-
-    <p>Agent's Name:</p>
-    <input type="text" name="agentsName" value="<%= loss.agentsName %>" />
-    <br>
-
-    <p>Agent's Email:</p>
-    <input type="email" name="agentsEmail" value="<%= loss.agentsEmail %>" />
-    <br>
-
-    <p>Agent's Phone:</p>
-    <input type="text" name="agentsPhone" value="<%= loss.agentsPhone %>" />
-    <br>
-
-    <p>Policy Number:</p>
-    <input type="text" name="policyNumber" value="<%= loss.policyNumber %>" />
-    <br>
-
-    <p>Policy Start:</p>
-    <input type="date" name="policyStart" value="<%= loss.policyStart %>" />
-    <br>
-
-    <p>Policy End:</p>
-    <input type="date" name="policyEnd" value="<%= loss.policyEnd %>" />
-    <br>
-
-    <p>Policy Link:</p>
-    <input type="url" name="policyLink" value="<%= loss.policyLink %>" />
-    <br>
-
-    <p>Photos Link:</p>
-    <input type="url" name="photoLink" value="<%= loss.photoLink %>" />
+  <p><strong>Insured Name:</strong></p>
+  <input type="text" name="insuredName" value="<%= loss.insuredName %>" required />
+  <br>
+  <br>
+  <p><strong>Insured Address:</strong></p>
+  <input type="text" name="insuredAddress" value="<%= loss.insuredAddress %>" required />
+  <br>
+  <br>
+  <p><strong>Insured Phone Number:</strong></p>
+  <input type="text" name="insuredPhoneNumber" value="<%= loss.insuredPhoneNumber %>" required />
+  <br>
+  <br>
+  <p><strong>Date of Loss:</strong></p>
+  <input type="date" name="dateOfLoss" value="<%= loss.dateOfLoss %>" required />
+  <br>
+  <br>
+  <p><strong>Type of Loss:</strong></p>
+  <input type="text" name="typeOfLoss" value="<%= loss.typeOfLoss %>" required />
+  <br>
+  <br>
+  <p><strong>Loss Location:</strong></p>
+  <input type="text" name="lossLocation" value="<%= loss.lossLocation %>" required />
+  <br>
+  <br>
+  <p><strong>Truck VIN:</strong></p>
+  <input type="text" name="truckVin" value="<%= loss.truckVin %>" />
+  <br>
+  <br>
+  <p><strong>Truck Make:</strong></p>
+  <input type="text" name="truckMake" value="<%= loss.truckMake %>" />
+  <br>
+  <br>
+  <p><strong>Truck Model:</strong></p>
+  <input type="text" name="truckModel" value="<%= loss.truckModel %>" />
+  <br>
+  <br>
+  <p><strong>Truck Year:</strong></p>
+  <input type="text" name="truckYear" value="<%= loss.truckYear %>" />
+  <br>
+  <br>
+  <p><strong>Trailer VIN:</strong></p>
+  <input type="text" name="trailerVin" value="<%= loss.trailerVin %>" />
+  <br>
+  <br>
+  <p><strong>Trailer Make:</strong></p>
+  <input type="text" name="trailerMake" value="<%= loss.trailerMake %>" />
+  <br>
+  <br>
+  <p><strong>Trailer Model:</strong></p>
+  <input type="text" name="trailerModel" value="<%= loss.trailerModel %>" />
+  <br>
+  <br>
+  <p><strong>Trailer Year:</strong></p>
+  <input type="text" name="trailerYear" value="<%= loss.trailerYear %>" />
+  <br>
+  <br>
+  <p><strong>Agent's Name:</strong></p>
+  <input type="text" name="agentsName" value="<%= loss.agentsName %>" />
+  <br>
+  <br>
+  <p><strong>Agent's Email:</strong></p>
+  <input type="email" name="agentsEmail" value="<%= loss.agentsEmail %>" />
+  <br>
+  <br>
+  <p><strong>Agent's Phone:</strong></p>
+  <input type="text" name="agentsPhone" value="<%= loss.agentsPhone %>" />
+  <br>
+  <br>
+  <p><strong>Policy Number:</strong></p>
+  <input type="text" name="policyNumber" value="<%= loss.policyNumber %>" />
+  <br>
+  <br>
+  <p><strong>Policy Start:</strong></p>
+  <input type="date" name="policyStart" value="<%= loss.policyStart %>" />
+  <br>
+  <br>
+  <p><strong>Policy End:</strong></p>
+  <input type="date" name="policyEnd" value="<%= loss.policyEnd %>" />
+  <br>
+  <br>
+  <p><strong>Policy Link:</strong></p>
+  <input type="url" name="policyLink" value="<%= loss.policyLink %>" />
+  <br>
+  <br>
+  <p><strong>Photos Link:</strong></p>
+  <input type="url" name="photoLink" value="<%= loss.photoLink %>" />
   </form>
-
+  <br>
   <br>
   
+  
+  <form action="/newloss/<%= loss._id %>?_method=PUT" method="POST">
+    <input type="submit" value="Update Loss" />
   <!-- Delete Loss Form -->
   <form action="/newloss/<%= loss._id %>?_method=DELETE" method="POST">
     <input type="submit" value="Delete Loss" />
