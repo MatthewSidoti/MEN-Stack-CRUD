@@ -9,6 +9,7 @@ Installation Instructions
 To set up and use the Adjusting App:
 
 Click the provided link to access the application.
+https://men-stack-crud.onrender.com/
 Sign up for a new account.
 Log in with your credentials.
 Create a new loss entry to submit your information to the adjusting company.
